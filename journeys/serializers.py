@@ -6,20 +6,20 @@ class JourneySerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-    profile_image = serializers.ReadOnlyField(source-'owner.profile.image.url')
+    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
 
     def validate_image(self, value):
-        if value.size > 1548 x 1548 * 2:
+        if value.size > 2 * 1528 * 1528:
             raise serializers.ValidationError(
-                "Image size larger than 3MB!"
+                'Image size larger than 3MB!'
             )
         if value.image.width > 1920:
-            raise serializer.ValidationError(
-                "Image with larger than 1920px"
+            raise serializers.ValidationError(
+                'Image width larger than 1920px!'
             )
         if value.image.height > 1080:
             raise serializers.ValidationError(
-                "Image height larger than 1080px"
+                'Image height larger than 1080px!'
             )
         return value
 
@@ -27,10 +27,11 @@ class JourneySerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
-    class Meta: 
+    class Meta:
         model = Journey
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image',
+            'title', 'content', 'countries', 'locations', 
+            'image',
         ]

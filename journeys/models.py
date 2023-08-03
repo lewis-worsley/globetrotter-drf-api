@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Journey(models.Model):
@@ -14,12 +15,12 @@ class Journey(models.Model):
     countries = models.CharField(max_length=50)
     locations = models.CharField(max_length=400)
     image = models.ImageField(
-        upload_to='images/', default='../default-journey-image_b1f0wk.jpg',
+        upload_to='images/', default='../default-journey-image_b1f0wk.jpg', 
         blank=True
     )
 
     class Meta:
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return f'{self.id} {self.title}'
