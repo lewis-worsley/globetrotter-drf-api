@@ -14,10 +14,10 @@ class JourneyList(generics.ListCreateAPIView):
     queryset = Journey.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(owner=.self.request.user)
+        serializer.save(owner=self.request.user)
 
 
-class JourneyDetail(APIView):
+class JourneyDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve a journey (post) and edit or delete it if you own it.
     """
