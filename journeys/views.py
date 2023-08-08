@@ -1,4 +1,5 @@
-from rest_framework import generics, permissions
+from django.db.models import Count
+from rest_framework import generics, permissions, filters
 from .models import Journey
 from .serializers import JourneySerializer
 from globetrotter_drf_api.permissions import IsOwnerOrReadOnly
@@ -11,7 +12,18 @@ class JourneyList(generics.ListCreateAPIView):
     """
     serializer_class = JourneySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Journey.objects.all()
+    queryset = Journey.objects.annotate(
+        likes_count = Count('likes', distinct=True),
+        comments_count = Count('comment', distinct=True),
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter,
+    ]
+    ordering_fields = [
+        'likes_count',
+        'comments_count',
+        'likes__created_at',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -23,4 +35,7 @@ class JourneyDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = JourneySerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Journey.objects.all()
+    queryset = Journey.objects.annotate(
+        likes_count = Count('likes', distinct=True),
+        comments_count = Count('comment', distinct=True),
+    ).order_by('-created_at')
