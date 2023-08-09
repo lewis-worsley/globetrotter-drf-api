@@ -8,8 +8,8 @@ from globetrotter_drf_api.permissions import IsOwnerOrReadOnly
 
 class JourneyList(generics.ListCreateAPIView):
     """
-    List journeys (posts) or create a post if logged in.
-    The perform_create method associates the post with the logged in user.
+    List journeys (posts) or create a journey if logged in.
+    The perform_create method associates the journey with the logged in user.
     """
     serializer_class = JourneySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
