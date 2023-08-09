@@ -2,7 +2,7 @@ from rest_framework import generics, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 from globetrotter_drf_api.permissions import IsOwnerOrReadOnly
 from .models import Comment
-from. serializers import CommentSerializer, CommentDetailSerializer
+from .serializers import CommentSerializer, CommentDetailSerializer
 
 
 class CommentList(generics.ListCreateAPIView):
@@ -17,7 +17,7 @@ class CommentList(generics.ListCreateAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        # Be able to retrieve all the comments associated with a given post
+        # Be able to retrieve all the comments associated with a given journey
         'journey', # 1
     ]
 
