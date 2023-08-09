@@ -29,7 +29,10 @@ class ProfileList(generics.ListAPIView):
         'owner__followed__created_at',
     ]
     filterset_fields = [
-        'owner__following__followed__profile',
+        # Filter profiles that are following a profile given its ID
+        'owner__following__followed__profile', # 1
+        # Filter profiles that are followed by a profile, given its ID
+        'owner__followed__owner__profile', # 2
     ]
 
 
