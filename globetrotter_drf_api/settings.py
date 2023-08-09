@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'followers',
     'journeys',
     'likes',
+    'likes_stops',
     'profiles',
     'stops',
 ]

@@ -30,7 +30,7 @@ class StopSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stop
         fields = [
-            'id', 'owner', 'journey', 'is_owner', 'profile_id',
+            'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'countries', 'locations',
             'image',

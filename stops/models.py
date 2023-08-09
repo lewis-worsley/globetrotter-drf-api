@@ -5,9 +5,6 @@ from journeys.models import Journey
 
 class Stop(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    journey = models.ForeignKey(
-        Journey, related_name='stops', on_delete=models.CASCADE
-    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
