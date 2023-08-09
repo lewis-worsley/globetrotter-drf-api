@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'journeys',
     'likes',
     'profiles',
+    'stops',
 ]
 
 MIDDLEWARE = [

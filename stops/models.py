@@ -1,13 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from journeys.models import Journey
 
 
-class Journey(models.Model):
-    """
-    Journey model, related to 'owner', i.e. a User instance.
-    Default image set so that we can always reference image.url.
-    """
+class Stops(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    journey = models.ForeignKey(
+        Journey, related_name='stops', on_delete=models.CASCADE
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
@@ -18,6 +18,7 @@ class Journey(models.Model):
         upload_to='images/', default='../default-journey-image_b1f0wk.jpg', 
         blank=True
     )
+
     class Meta:
         ordering = ['-created_at']
 
