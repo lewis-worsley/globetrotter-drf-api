@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from journeys.models import Journey
 
 
-class Stops(models.Model):
+class Stop(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     journey = models.ForeignKey(
         Journey, related_name='stops', on_delete=models.CASCADE
