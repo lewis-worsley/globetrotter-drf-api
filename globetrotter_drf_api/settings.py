@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'comments',
     'comments_stops',
     'followers',
+    'news',
     'journeys',
     'likes',
     'likes_stops',
