@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
 
+    'blogs',
     'comments',
     'comments_stops',
     'followers',
