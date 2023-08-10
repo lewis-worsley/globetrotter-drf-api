@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Stop
+from likes_stops.models import LikeStop
 
 
 class StopSerializer(serializers.ModelSerializer):
@@ -7,6 +8,9 @@ class StopSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1528 * 1528:
@@ -27,11 +31,19 @@ class StopSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
     
+    def get_like_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            likestop = LikeStop.objects.filter(
+                owner=user, stop=obj
+            ).first()
+            return likestop.id if likestop else None
+        return None
     class Meta:
         model = Stop
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'countries', 'locations',
-            'image',
+            'image', 'like_id', 'likes_count', 'comments_count',
         ]
