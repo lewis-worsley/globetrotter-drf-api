@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-jzf4h(58e5z7l$8wk)j4-wj!q3gmm42w(o&i3j0#e-vfp3y4is
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-lewisworsle-globetrotte-x3wlrtka27e.ws-eu102.gitpod.io']
+ALLOWED_HOSTS = ['8000-lewisworsle-globetrotte-x3wlrtka27e.ws-eu103.gitpod.io']
 
 
 # Application definition
@@ -54,14 +54,15 @@ INSTALLED_APPS = [
 
     'blogs',
     'comments',
+    'comments_blogs',
     'comments_stops',
     'followers',
-    'news',
     'journeys',
     'likes',
-    'likes_stops',
     'likes_blogs',
+    'likes_stops',
     'profiles',
+    'news',
     'stops',
 ]
 
