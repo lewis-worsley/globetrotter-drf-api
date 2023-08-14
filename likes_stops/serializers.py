@@ -12,7 +12,7 @@ class LikeStopSerializer(serializers.ModelSerializer):
     class Meta:
         model = LikeStop
         fields = [
-            'id', 'created_at', 'owner', 'journey', 'stop'
+            'id', 'created_at', 'owner', 'stop'
         ]
     
     def create(self, validated_data):
