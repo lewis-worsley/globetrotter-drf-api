@@ -63,7 +63,7 @@ SECRET_KEY = 'fk(&qr882vz$$(u726$fp3s@%n$nxb_66l*06)19ziwx!@67r1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'globetrotter.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'globetrotter-b5d0296d5c65.herokuapp.com']
 
 
 # Application definition
