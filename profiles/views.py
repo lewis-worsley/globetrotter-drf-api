@@ -40,7 +40,7 @@ class ProfileList(generics.ListAPIView):
         serializer.save(owner=self.request.user)
 
 
-class ProfileDetail(generics.RetrieveUpdateAPIView):
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve or update a profile if you're the owner
     """
