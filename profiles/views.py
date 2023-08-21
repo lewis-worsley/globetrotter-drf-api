@@ -1,5 +1,5 @@
 from django.db.models import Count
-from rest_framework import generics, filters
+from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Profile
 from .serializers import ProfileSerializer
@@ -12,6 +12,7 @@ class ProfileList(generics.ListAPIView):
     No create view (post method), as profile creation handled by Django signals
     """
     serializer_class = ProfileSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Profile.objects.annotate(
         journeys_count=Count('owner__journey', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
@@ -34,6 +35,9 @@ class ProfileList(generics.ListAPIView):
         # Filter profiles that are followed by a profile, given its ID
         'owner__followed__owner__profile', # 2
     ]
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
