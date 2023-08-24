@@ -15,7 +15,7 @@ class BlogList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Blog.objects.annotate(
         likes_count = Count('likes', distinct=True),
-        comments_count = Count('comment', distinct=True),
+        comments_count = Count('commentblog', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -52,5 +52,5 @@ class BlogDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Blog.objects.annotate(
         likes_count = Count('likes', distinct=True),
-        comments_count = Count('comment', distinct=True),
+        comments_count = Count('commentblog', distinct=True),
     ).order_by('-created_at')
