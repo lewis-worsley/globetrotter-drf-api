@@ -13,6 +13,7 @@ class Profile(models.Model):
         upload_to='images/', default='../default_profile_htzjeu'
     )
     based = models.CharField(max_length=60)
+    is_admin = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_at']
