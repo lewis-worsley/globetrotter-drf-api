@@ -14,6 +14,7 @@ class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.annotate(
         journeys_count=Count('owner__journey', distinct=True),
+        blogs_count=Count('owner__blog', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
@@ -43,6 +44,7 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
         journeys_count=Count('owner__journey', distinct=True),
+        blogs_count=Count('owner__blog', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
