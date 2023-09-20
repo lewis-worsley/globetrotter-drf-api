@@ -15,5 +15,4 @@ class NewsList(generics.ListCreateAPIView):
 
 class NewsDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = NewsSerializer
-    permission_classes = [permissions.IsAdminUser]
     queryset = News.objects.all()
