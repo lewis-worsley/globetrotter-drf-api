@@ -13,17 +13,17 @@ class JourneySerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
-        if value.size > 2 * 1528 * 1528:
+        if value.size > 2 * 2000 * 2000:
             raise serializers.ValidationError(
-                'Image size larger than 3MB!'
+                'Image size larger than 4MB!'
             )
         if value.image.width > 1920:
             raise serializers.ValidationError(
                 'Image width larger than 1920px!'
             )
-        if value.image.height > 1080:
+        if value.image.height > 1920:
             raise serializers.ValidationError(
-                'Image height larger than 1080px!'
+                'Image height larger than 1920px!'
             )
         return value
 
