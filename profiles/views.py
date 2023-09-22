@@ -31,10 +31,11 @@ class ProfileList(generics.ListAPIView):
     ]
     filterset_fields = [
         # Filter profiles that are following a profile given its ID
-        'owner__following__followed__profile', # 1
+        'owner__following__followed__profile',  # 1
         # Filter profiles that are followed by a profile, given its ID
-        'owner__followed__owner__profile', # 2
+        'owner__followed__owner__profile',  # 2
     ]
+
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
@@ -48,4 +49,3 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
-    

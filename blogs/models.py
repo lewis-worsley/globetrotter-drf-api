@@ -50,7 +50,8 @@ class Blog(models.Model):
         ("Cuba", "Cuba"),
         ("Cyprus", "Cyprus"),
         ("Czech Republic", "Czech Republic"),
-        ("Democratic Republic of the Congo", "Democratic Republic of the Congo"),
+        ("Democratic Republic of the Congo",
+            "Democratic Republic of the Congo"),
         ("Denmark", "Denmark"),
         ("Djibouti", "Djibouti"),
         ("Dominica", "Dominica"),
@@ -154,7 +155,8 @@ class Blog(models.Model):
         ("Rwanda", "Rwanda"),
         ("Saint Kitts and Nevis", "Saint Kitts and Nevis"),
         ("Saint Lucia", "Saint Lucia"),
-        ("Saint Vincent and the Grenadines", "Saint Vincent and the Grenadines"),
+        ("Saint Vincent and the Grenadines",
+            "Saint Vincent and the Grenadines"),
         ("Samoa", "Samoa"),
         ("San Marino", "San Marino"),
         ("Sao Tome and Principe", "Sao Tome and Principe"),
@@ -204,21 +206,22 @@ class Blog(models.Model):
         ("Zambia", "Zambia"),
         ("Zimbabwe", "Zimbabwe"),
     )
-    
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
     content = models.TextField(blank=True)
-    countries = models.CharField(max_length=50, choices=COUNTRY_CHOICES, default=None)
+    countries = models.CharField(
+        max_length=50, choices=COUNTRY_CHOICES, default=None)
     locations = models.CharField(max_length=200, blank=True, default='')
     image = models.ImageField(
-        upload_to='images/', default='../default-journey-image_b1f0wk.jpg', 
+        upload_to='images/', default='../default-journey-image_b1f0wk.jpg',
         blank=True
     )
 
     class Meta:
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return f'{self.id} {self.title}'

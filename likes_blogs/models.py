@@ -13,6 +13,6 @@ class LikeBlog(models.Model):
     class Meta:
         ordering = ['-created_at']
         unique_together = ['owner', 'blog']
-    
+
     def __str__(self):
         return f'{self.owner} {self.blog}'

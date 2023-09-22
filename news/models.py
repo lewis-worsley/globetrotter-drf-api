@@ -7,12 +7,12 @@ class News(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     image = models.ImageField(
-        upload_to='images/', default='../default-journey-image_b1f0wk.jpg', 
+        upload_to='images/', default='../default-journey-image_b1f0wk.jpg',
         blank=True
     )
 
     class Meta:
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return f'{self.id} {self.title}'

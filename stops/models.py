@@ -13,7 +13,7 @@ class Stop(models.Model):
     countries = models.CharField(max_length=50)
     locations = models.CharField(max_length=400)
     image = models.ImageField(
-        upload_to='images/', default='../default-journey-image_b1f0wk.jpg', 
+        upload_to='images/', default='../default-journey-image_b1f0wk.jpg',
         blank=True
     )
 

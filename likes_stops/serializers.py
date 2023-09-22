@@ -14,7 +14,7 @@ class LikeStopSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'created_at', 'owner', 'stop'
         ]
-    
+
     def create(self, validated_data):
         try:
             return super().create(validated_data)

@@ -6,7 +6,7 @@ from stops.models import Stop
 class LikeStop(models.Model):
     """
     LikeStop model, related to User, Journey, and Stop.
-    'owner' is a User instance, 'journey' is a Journey instance, 
+    'owner' is a User instance, 'journey' is a Journey instance,
     and 'stop' is a stop instance.
     'unique_together' makes sure a user can't like the same stop twice.
     """

@@ -30,7 +30,7 @@ class StopSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
+
     def get_like_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -39,6 +39,7 @@ class StopSerializer(serializers.ModelSerializer):
             ).first()
             return likestop.id if likestop else None
         return None
+
     class Meta:
         model = Stop
         fields = [

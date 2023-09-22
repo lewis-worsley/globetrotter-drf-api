@@ -12,13 +12,13 @@ class CommentList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-    
+
     filter_backends = [
         DjangoFilterBackend,
     ]
     filterset_fields = [
         # Be able to retrieve all the comments associated with a given journey
-        'journey', # 1
+        'journey',  # 1
     ]
 
 

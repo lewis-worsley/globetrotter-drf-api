@@ -7,7 +7,7 @@ class Like(models.Model):
     """
     Like model, related to User and Journey.
     'owner' is a User instance and 'journey' is a Journey instance.
-    'unique_together' makes sure a user can't like the same journey (post) twice.
+    'unique_together' makes sure a user can't like the same journey twice.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     journey = models.ForeignKey(
@@ -18,7 +18,6 @@ class Like(models.Model):
     class Meta:
         ordering = ['-created_at']
         unique_together = ['owner', 'journey']
-    
+
     def __str__(self):
         return f'{self.owner} {self.journey}'
-

@@ -13,8 +13,8 @@ class StopList(generics.ListCreateAPIView):
     serializer_class = StopSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Stop.objects.annotate(
-        likes_count = Count('likes', distinct=True),
-        comments_count = Count('commentstop', distinct=True),
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('commentstop', distinct=True),
     ).order_by('-created_at')
 
     def perform_create(self, serializer):
@@ -28,6 +28,6 @@ class StopDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = StopSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Stop.objects.annotate(
-        likes_count = Count('likes', distinct=True),
-        comments_count = Count('commentstop', distinct=True),
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('commentstop', distinct=True),
     ).order_by('-created_at')

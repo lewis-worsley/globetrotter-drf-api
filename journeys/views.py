@@ -14,8 +14,8 @@ class JourneyList(generics.ListCreateAPIView):
     serializer_class = JourneySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Journey.objects.annotate(
-        likes_count = Count('likes', distinct=True),
-        comments_count = Count('comment', distinct=True),
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -33,11 +33,11 @@ class JourneyList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         # user feed
-        'owner__followed__owner__profile', # 1
+        'owner__followed__owner__profile',  # 1
         # user liked posts
-        'likes__owner__profile', # 2
+        'likes__owner__profile',  # 2
         # user posts
-        'owner__profile', # 3
+        'owner__profile',  # 3
     ]
 
     def perform_create(self, serializer):
@@ -51,6 +51,6 @@ class JourneyDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = JourneySerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Journey.objects.annotate(
-        likes_count = Count('likes', distinct=True),
-        comments_count = Count('comment', distinct=True),
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True),
     ).order_by('-created_at')

@@ -3,6 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import News
 from .serializers import NewsSerializer
 
+
 class NewsList(generics.ListCreateAPIView):
     serializer_class = NewsSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
