@@ -213,7 +213,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField(blank=True)
     countries = models.CharField(
-        max_length=50, choices=COUNTRY_CHOICES, default=None)
+        max_length=50, choices=COUNTRY_CHOICES, default="England")
     locations = models.CharField(max_length=200, blank=True, default='')
     image = models.ImageField(
         upload_to='images/', default='../default-journey-image_b1f0wk.jpg',
