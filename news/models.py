@@ -2,6 +2,9 @@ from django.db import models
 
 
 class News(models.Model):
+    """
+    Allows site admin to publish new news articles to the website
+    """
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
