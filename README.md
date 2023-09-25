@@ -110,8 +110,8 @@ The API contains the following features:
 ​The journeys list page shows a list of all posts added from the front end; each individual journey detail can be viewed to:
 
 
-- Journey list: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/journey-list.png)
-- Journey detail: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/journey-detail.png)
+- Journey list: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/journeys-list.png)
+- Journey detail: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/journeys-detail.png)
 
 <br>
 
@@ -120,8 +120,8 @@ The API contains the following features:
 
 ​The blogs list page shows a list of all posts added from the front end; each individual blog detail can be viewed to:
 
-- Blog list: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/blog-list.png)
-- Blog detail: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/blog-detail.png)
+- Blog list: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/blogs-list.png)
+- Blog detail: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/blogs-detail.png)
 
 <br>
 
@@ -164,8 +164,8 @@ Comments can be added to journeys and blogs. A user can create, edit or delete a
 
 Users on the front-end have the ability to follow or un-follow each other thanks to the API. A follow is created for each 'follow' and destroyed each time a user clicks 'unfollow'.
 
-- Followers comment list: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/list-followers.png)
-- Blog comment detail: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/detail-followers.png)
+- Followers list: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/list-followers.png)
+- Followers detail: [here](https://github.com/lewis-worsley/globetrotter-drf-api/tree/main/docs/features/detail-followers.png)
 
 <br>
 
@@ -190,7 +190,7 @@ Serializers contain permission checks to grant or deny access to users depending
 
 As I was exclusively working with Python files, I used https://pep8ci.herokuapp.com/ to validate Python files.
 
-No errors are reported.
+The testing process, along with bugs, can be viewed [here](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/TESTING.md).
 
 <br>
 
