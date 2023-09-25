@@ -11,21 +11,21 @@ The deployed API can be viewed here: https://globetrotter-b5d0296d5c65.herokuapp
 
 ## Contents
 
-[Planning & Development](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#planning--development)
+[Planning & Development](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#planning--development)
 
-[Features](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#features)
+[Features](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#features)
 
-[Defensive Design](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#defensive-design)
+[Defensive Design](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#defensive-design)
 
-[Testing](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#testing)
+[Testing](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#testing)
 
-[Deployment](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#deployment)
+[Deployment](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#deployment)
 
-[Languages](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#languages)
+[Languages](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#languages)
 
-[Media](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#media)
+[Media](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#media)
 
-[Credits](https://github.com/lewis-worsley/globetrotter/blob/main/README.md#credits)
+[Credits](https://github.com/lewis-worsley/globetrotter-drf-api/blob/main/README.md#credits)
 
 <br>
 
@@ -290,7 +290,7 @@ I took the following steps to deploy the site to Heroku and have listed any cons
 #### Add profile id and profile image fields
 <hr>
 
-1. Create a new *serializers.py file*: e.g. `barbelles_api / serializers.py`
+1. Create a new *serializers.py file*: e.g. `globetrotters_drf_api / serializers.py`
     - in the new serializers.py file, import: 
     `from dj_rest_auth.serializers import UserDetailsSerializer from rest_framework import serializers`
     - create profile_id and profile_image fields: 
@@ -311,7 +311,7 @@ I took the following steps to deploy the site to Heroku and have listed any cons
 #### Add the root route
 <hr>
 
-1. In the IDE / terminal, create a *views.py* file: e.g. `barbelles_api / views`
+1. In the IDE / terminal, create a *views.py* file: e.g. `globetrotter_drf_api / views`
     - in the new *views.py* file, import: 
     `from rest_framework.decorators import api_view 
      from rest_framework.response import Response`
