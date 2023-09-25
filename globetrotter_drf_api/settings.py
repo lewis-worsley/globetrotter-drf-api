@@ -61,9 +61,15 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+DEBUG = False
+
+#to be used in DEV mode
+# DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS'), 'localhost',]
+
+# to be used in DEV mode
+# ALLOWED_HOSTS = ['localhost', '8000-lewisworsle-globetrotte-x3wlrtka27e.ws-eu104.gitpod.io']
 
 
 # Application definition
@@ -153,17 +159,23 @@ WSGI_APPLICATION = 'globetrotter_drf_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if 'DEV' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
+
+# To be used in DEV mode
+# if 'DEV' in os.environ:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#     }
+
+DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    }
+}
 
 
 # Password validation
